@@ -1,0 +1,12 @@
+<odoo>
+    <record id="kw_hr_recruitment_survey_user_input_tree" model="ir.ui.view">
+        <field name="name">kw.hr.recruitment.survey.user.input.tree</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_tree"/>
+        <field name="arch" type="xml">
+            <field name="survey_id" position="after">
+                <field name="kw_hr_job_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
