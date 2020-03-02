@@ -9,4 +9,22 @@
             </field>
         </field>
     </record>
+    <record id="kw_survey_user_input_search" model="ir.ui.view">
+        <field name="name">survey_user_input_search</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_search"/>
+        <field name="arch" type="xml">
+            <search position="inside">
+                <field name="kw_hr_job_id"/>
+            </search>
+            <xpath expr="//search/filter[@name='completed']" position="after">
+                <filter name="applied_job" string="Applied Job"
+                        domain="[('kw_hr_job_id','!=',False)]"/>
+            </xpath>
+            <xpath expr="//group/filter[3]" position="after">
+                <filter string="Applied Job" domain="[]"
+                        context="{'group_by': ['kw_hr_job_id']}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
